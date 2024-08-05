@@ -64,6 +64,15 @@ def run_query(query_statement, sql_connection):
     print(query_res)
     return query_res
 
+def validate_data(df):
+    if df.isnull().values.any():
+        log_progress("Data validation failed: Missing values detected.")
+        raise ValueError("Data contains missing values")
+    if not all(df['GDP_USD_billions'] >= 0):
+        log_progress("Data validation failed: Negative GDP values detected.")
+        raise ValueError("Data contains negative GDP values")
+    log_progress("Data validation passed.")
+    return True
 
 
 

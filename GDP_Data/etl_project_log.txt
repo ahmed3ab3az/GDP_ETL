@@ -58,3 +58,10 @@
 2024-08-05-18:04:46 : SQL Connection initiated.
 2024-08-05-18:04:46 : Data loaded to Database as table. Running the query
 2024-08-05-18:04:46 : Process Complete.
+2024-08-05-18:48:23 : Preliminaries complete. Initiating ETL process
+2024-08-05-18:48:27 : Data extraction complete. Initiating Transformation process
+2024-08-05-18:48:27 : Data transformation complete. Initiating loading process
+2024-08-05-18:48:27 : Data saved to CSV file
+2024-08-05-18:48:27 : SQL Connection initiated.
+2024-08-05-18:48:27 : Data loaded to Database as table. Running the query
+2024-08-05-18:48:27 : Process Complete.

@@ -2,7 +2,7 @@
 
 # Importing the required libraries
 import pandas as pd
-import numpy as np 
+import numpy as np
 import requests
 from bs4 import BeautifulSoup
 import sqlite3
@@ -75,9 +75,3 @@ def log_progress(message):
     timestamp = datetime.strftime(now,time_form)
     with open('./GDP_Data/etl_project_log.txt' , 'a') as log:
         log.write(timestamp + ' : ' + message + '\n')
-
-
-
-
-
-

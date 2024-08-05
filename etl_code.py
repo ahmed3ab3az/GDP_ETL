@@ -14,28 +14,28 @@ def extract_from_json(file_to_process):
     return dataframe 
 def extract_from_xml(file_to_process): 
     dataframe = pd.DataFrame(columns=['name' , "height", "weight"])
-    tree = ET.ElementTree(file_to_process)
+    tree = ET.parse(file_to_process)
     root = tree.getroot()
     for row in root:
-        name = row.find('name')
-        height = float(row.find('height'))
-        weight = float(row.find('weight'))
-        dataframe = pd.concat([dataframe, pd.DataFrame({'name' : name , 'height' : height , 'weight' : weight })], ignore_index=True)
+        name = row.find('name').text
+        height = float(row.find('height').text)
+        weight = float(row.find('weight').text)
+        dataframe = pd.concat([dataframe, pd.DataFrame({'name' : [name] , 'height' : [height] , 'weight' : [weight] })], ignore_index=True)
     return dataframe 
 def extract():
     extraced_data = dataframe = pd.DataFrame(columns=['name' , "height", "weight"])
 
     # process all csv files
-    for file in glob.glob('*.csv'):
+    for file in glob.glob('source/*.csv'):
         extraced_data = pd.concat([extraced_data , extract_from_csv(file)] , ignore_index=True)
 
 
     # process all json files
-    for file in glob.glob('*.json'):
+    for file in glob.glob('source/*.json'):
         extraced_data = pd.concat([extraced_data , extract_from_json(file)] , ignore_index=True)
 
-    # process all csv files
-    for file in glob.glob('*.xml'):
+    # process all xml files
+    for file in glob.glob('source/*.xml'):
         extraced_data = pd.concat([extraced_data , extract_from_xml(file)] , ignore_index=True)
     return extraced_data
 def transform(data):

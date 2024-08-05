@@ -34,4 +34,5 @@ run_query(query_statement, sql_connection)
 
 log_progress('Process Complete.')
 
+
 sql_connection.close()

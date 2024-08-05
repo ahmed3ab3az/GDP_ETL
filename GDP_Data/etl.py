@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup
 import sqlite3
 from datetime import datetime 
 
-
 ''' Here, you define the required entities and call the relevant 
 functions in the correct order to complete the project. Note that this
 portion is not inside any function.'''
@@ -63,6 +62,7 @@ def run_query(query_statement, sql_connection):
     query_res = pd.read_sql(query_statement,sql_connection)
     print(query_statement)
     print(query_res)
+    return query_res
 
 
 

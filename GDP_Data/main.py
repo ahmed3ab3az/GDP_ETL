@@ -35,6 +35,10 @@ query_statement = f"SELECT * from {table_name} WHERE GDP_USD_billions >= 100"
 
 run_query(query_statement, sql_connection)
 
+log_progress('Creating data visualization')
+vis_output_path = './GDP_Data/GDP_visualization.png'
+visualize_data(df, vis_output_path)
+
 log_progress('Process Complete.')
 
 

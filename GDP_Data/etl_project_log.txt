@@ -98,3 +98,14 @@
 2024-08-05-22:00:42 : SQL Connection initiated.
 2024-08-05-22:00:42 : Data loaded to Database as table. Running the query
 2024-08-05-22:00:42 : Process Complete.
+2024-08-05-22:07:49 : Preliminaries complete. Initiating ETL process
+2024-08-05-22:07:52 : Data extraction complete. Initiating Transformation process
+2024-08-05-22:07:52 : Data validation passed.
+2024-08-05-22:07:52 : Data transformation and validation complete. Initiating loading process
+2024-08-05-22:07:52 : Data transformation complete. Initiating loading process
+2024-08-05-22:07:52 : Data saved to CSV file
+2024-08-05-22:07:52 : SQL Connection initiated.
+2024-08-05-22:07:52 : Data loaded to Database as table. Running the query
+2024-08-05-22:07:52 : Creating data visualization
+2024-08-05-22:07:52 : Data visualization saved to ./GDP_Data/GDP_visualization.png
+2024-08-05-22:07:52 : Process Complete.

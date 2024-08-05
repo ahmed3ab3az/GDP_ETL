@@ -7,7 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 import sqlite3
 from datetime import datetime 
-
+import matplotlib.pyplot as plt
 ''' Here, you define the required entities and call the relevant 
 functions in the correct order to complete the project. Note that this
 portion is not inside any function.'''
@@ -74,7 +74,44 @@ def validate_data(df):
     log_progress("Data validation passed.")
     return True
 
-
+def visualize_data(df, output_path, top_n=10):
+    """
+    Create a bar chart of the top N countries by GDP.
+    
+    Args:
+    df (pandas.DataFrame): The dataframe containing the GDP data.
+    output_path (str): The path where the visualization will be saved.
+    top_n (int): The number of top countries to display (default is 10).
+    
+    Returns:
+    None
+    """
+    # Sort the dataframe by GDP (descending) and select top N countries
+    top_countries = df.sort_values('GDP_USD_billions', ascending=False).head(top_n)
+    
+    # Create a bar plot
+    plt.figure(figsize=(12, 6))
+    bars = plt.bar(top_countries['Country'], top_countries['GDP_USD_billions'])
+    
+    # Customize the plot
+    plt.title(f'Top {top_n} Countries by GDP (Billions USD)')
+    plt.xlabel('Country')
+    plt.ylabel('GDP (Billions USD)')
+    plt.xticks(rotation=45, ha='right')
+    
+    # Add value labels on top of each bar
+    for bar in bars:
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2., height,
+                 f'{height:,.2f}',
+                 ha='center', va='bottom')
+    
+    # Adjust layout and save the plot
+    plt.tight_layout()
+    plt.savefig(output_path)
+    plt.close()
+    
+    log_progress(f'Data visualization saved to {output_path}')
 
 
 def log_progress(message):

@@ -2,7 +2,7 @@
   <img src="https://cdn-icons-png.flaticon.com/512/6295/6295417.png" width="100" />
 </p>
 <p align="center">
-    <h1 align="center">IBM_PROJECT</h1>
+    <h1 align="center">GDP ETL</h1>
 </p>
 <p align="center">
     <em><code>GDP</code></em>
